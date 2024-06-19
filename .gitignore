@@ -1,0 +1,14 @@
+# Ignore miscellaneous files
+cscope.*
+*.swp
+*.patch
+*~
+.project
+.cproject
+.vscode/
+.DS_Store
+
+# Ignore build directory
+build/
+build_clang/
+build_gcc/
