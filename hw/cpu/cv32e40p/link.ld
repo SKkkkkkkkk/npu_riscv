@@ -75,13 +75,8 @@ SECTIONS
   .heap : ALIGN(16)
   {
    PROVIDE(__heap_start = .);
-   PROVIDE(__heap_end = ALIGN(ORIGIN(dram) + LENGTH(dram) - __heap_start - 15, 16));
-   . = __heap_end;
+   . = . + 4K;
+   PROVIDE(__heap_end = .);
   } >dram
-  .stack (__heap_start) : ALIGN(16)
-  {
-   PROVIDE(__stack_start = __heap_start);
-   . = __heap_end;
-   PROVIDE(__stack_end = .);
-  } >dram
+  __stack_top = ORIGIN(dram) + LENGTH(dram);
 }

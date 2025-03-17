@@ -25,7 +25,8 @@ project("${PROJECT_NAME}"
 
 ## common
 set(compile_options_common
-	-Wall -Werror -Wno-unused-variable -Wno-unused-function
+	-Wall -Werror 
+	-Wno-unused-variable -Wno-unused-function -Wno-unused-but-set-variable
 	-ffunction-sections -fdata-sections
 	-mstrict-align
 )
@@ -45,7 +46,7 @@ if(NOT $CACHE{CMAKE_BUILD_TYPE} STREQUAL "Debug" AND NOT $CACHE{CMAKE_BUILD_TYPE
 endif()
 
 ## architecture specific
-set(compile_options_arch -mlittle-endian -march=rv32im_zicsr -mabi=ilp32)
+set(compile_options_arch -mlittle-endian -march=rv32imf_zicsr -mabi=ilp32)
 
 ## compiler specific
 
